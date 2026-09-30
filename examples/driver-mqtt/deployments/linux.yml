@@ -1,0 +1,5 @@
+Name: node-driver-mqtt
+Description: KESI MQTT 驱动示例
+Version: 1.0.0
+GroupName: driver
+Service: None

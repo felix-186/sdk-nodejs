@@ -1,0 +1,7517 @@
+{
+  "core": {
+    "GET /core/apiKey": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/apiKey": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/apiKey/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/apiKey/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/apiKey/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/apiKey/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/apipermission": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/apipermission": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/apipermission/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/apipermission/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/apipermission/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/apipermission/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/app": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/app": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/app/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/app/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/app/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/app/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/archivecycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/archivecycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/archivecycle/archiveonce": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/archivecycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/archivecycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/archivecycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/archivedlog": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/archivedlog/restore/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/archivedlog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/archivedlog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/auth/captcha": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/auth/checkAdmin": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/auth/i18n": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/auth/license": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /core/auth/login": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/auth/login/phone": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/auth/login/refresh-login": {
+      "auth": true,
+      "params": [
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/auth/login/refresh-token": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/auth/logout": {
+      "auth": false,
+      "params": [
+        {
+          "name": "type",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/auth/oauth/redirect": {
+      "auth": false,
+      "params": [
+        {
+          "name": "code",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /core/auth/project/token": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/auth/tag": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/auth/token": {
+      "auth": false,
+      "params": [
+        {
+          "name": "appkey",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "appsecret",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/auth/user": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "PUT /core/auth/user": {
+      "auth": true,
+      "params": [
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/auth/userdetail": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/backup": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backup/download/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backup/export": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backup/getSizeAndTime": {
+      "auth": true,
+      "params": [
+        {
+          "name": "excludedDirs",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backup/import": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/backup/upload": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/backup/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/backup/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/backup/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backupCycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/backupCycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backupCycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/backupCycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/backupCycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backupclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/backupclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ProjectDbDeleteSetting",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/backupclean/instantDelete": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/backupclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/backupclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/backupclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/backupclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/catalog": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/catalog": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/catalog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/catalog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/catalog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "cascade",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/catalog/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/cleancycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/cleancycle": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/cleancycle/cleanonce": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/cleancycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/cleancycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/cleancycle/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/crypto/decrypt": {
+      "auth": true,
+      "params": [
+        {
+          "name": "cipherText",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/crypto/getDynamicCode": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/crypto/getPublicKey": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/crypto/getServerMsg": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "POST /core/data/import/excel/{table}/{skip}/{remove}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "skip",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "remove",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/data/latest": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/data/latest": {
+      "auth": true,
+      "params": [
+        {
+          "name": "model",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/data/modify": {
+      "auth": true,
+      "params": [
+        {
+          "name": "model",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/data/query": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/data/query": {
+      "auth": true,
+      "params": [
+        {
+          "name": "model",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/data/save": {
+      "auth": true,
+      "params": [
+        {
+          "name": "model",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/data/save/many": {
+      "auth": true,
+      "params": [
+        {
+          "name": "model",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/dataRecord": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/dataRecord": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/dataRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/dataRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/dataRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/dataRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/i18n": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/i18n": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/i18n/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/i18n/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/i18n/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/i18n/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/i18nDict": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/i18nDict": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/i18nDict/import/excel": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "importRule",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/i18nDict/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/i18nDict/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/i18nDict/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/i18nDict/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/import/excel/{notSkip}/{replaceAll}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "notSkip",
+          "in": "path",
+          "required": false
+        },
+        {
+          "name": "replaceAll",
+          "in": "path",
+          "required": false
+        },
+        {
+          "name": "repeatField",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "format",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "fieldMapping",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "sheetName",
+          "in": "formData",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/license": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/driver": {
+      "auth": true,
+      "params": [
+        {
+          "name": "licenseName",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/license/historyLicense": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/info": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/mac": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/machineInfo": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/operatingSystemInfo": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/projectAdvanced": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/license/systemBaseInfo": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /core/license/upload": {
+      "auth": true,
+      "params": [
+        {
+          "name": "license",
+          "in": "formData",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/license/v2": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/license/v2/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/log": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/log": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/log/export/{type}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "type",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/log/type": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/log/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/log/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/log/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/log/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/media/fixed/{category}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "category",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/media/fixed/{category}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "category",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/media/{category}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "category",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /core/media/{category}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "category",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/mediaLibrary": {
+      "auth": true,
+      "params": [
+        {
+          "name": "catalog",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "addBase64",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/mediaLibrary": {
+      "auth": true,
+      "params": [
+        {
+          "name": "path",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "completeDelete",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/all/dir": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/all/file": {
+      "auth": true,
+      "params": [
+        {
+          "name": "category",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "catalog",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/components": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/mediaLibrary/copy": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/mediaLibrary/decompress": {
+      "auth": true,
+      "params": [
+        {
+          "name": "path",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/mediaLibrary/fileexist": {
+      "auth": true,
+      "params": [
+        {
+          "name": "filepath",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/find": {
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/findComponent": {
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/lang": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/mkdir": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/mediaLibrary/move": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/online/batchDownload": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/online/dir": {
+      "auth": true,
+      "params": [
+        {
+          "name": "dirpath",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/online/download": {
+      "auth": true,
+      "params": [
+        {
+          "name": "filepath",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/online/file/{filepath}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "filepath",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/prepare": {
+      "auth": true,
+      "params": [
+        {
+          "name": "fileSize",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "contentHash",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "in": "formData",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "PATCH /core/mediaLibrary/rename": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/saveFileFromUrl": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/saveImageFromBase64": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibrary/thumbnail": {
+      "auth": true,
+      "params": [
+        {
+          "name": "path",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "width",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "height",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/upload": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "action",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/mediaLibrary/upload/loading": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/mediaLibrary/uploadChunk": {
+      "auth": true,
+      "params": [
+        {
+          "name": "chunk",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "fileHash",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "chunkName",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "chunkNum",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "start",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "end",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "total",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "index",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "fileName",
+          "in": "formData",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibrary/uploadCompress": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/mediaLibraryDirSetting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibraryDirSetting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/mediaLibraryDirSetting/byPath": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/mediaLibraryDirSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/mediaLibraryDirSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/mediaLibraryDirSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/mediaLibraryDirSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/message": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/message": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/message/read": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/message/read/batch": {
+      "auth": true,
+      "params": [
+        {
+          "name": "warning",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/message/read/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/message/restore/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/message/unread/count": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/message/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/message/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/message/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/message/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/messageclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/messageclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "DeleteSetting",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/messageclean/instantDelete": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/messageclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/messageclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/messageclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/messageclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/oauthApp": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/oauthApp": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/oauthApp/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/oauthApp/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/oauthApp/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/oauthApp/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/qaRecord": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/qaRecord": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/qaRecord/callmodel": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/qaRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/qaRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/qaRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/qaRecord/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/register/admin": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/register/normal": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/role": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/role": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/role/admin/check": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/role/examine": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/role/exportquery": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/role/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/role/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/role/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/role/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/setting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/setting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/setting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/setting/login/part": {
+      "auth": false,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/setting/part": {
+      "auth": false,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/setting/warning/part": {
+      "auth": false,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/sms/template": {
+      "auth": false,
+      "params": [],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /core/systemVariable": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/systemVariable": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/systemVariable/import/excel/template": {
+      "auth": false,
+      "params": [],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /core/systemVariable/import/excel/{notSkip}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "notSkip",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/systemVariable/update/excel": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/systemVariable/update/excel/template": {
+      "auth": false,
+      "params": [],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /core/systemVariable/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/systemVariable/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/systemVariable/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/systemVariable/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/count": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/t/d/examine": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/dept": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ids",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/record": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "queryRule",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/record": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/record/export/excel/prop/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "columns",
+          "in": "formData",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/t/record/update/excel/prop/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "prop",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "index",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "override",
+          "in": "formData",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "GET /core/t/record/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "queryRule",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/t/record/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/record/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/record/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "queryRule",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema/batch/deptmapping": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema/batch/recordname": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /core/t/schema/batch/relations": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ids",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema/batch/tableorder": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "PATCH /core/t/schema/change/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/child/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/command/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema/commands": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ids",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/hasauthuser/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/mapping/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/parent/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/relations/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/structdata": {
+      "auth": true,
+      "params": [
+        {
+          "name": "tableID",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "shipID",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/tag/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/viewverify": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/schema/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "queryRule",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/t/schema/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/schema/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/schema/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/schema/{id}/fields/add": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/schema/{id}/fields/delete": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/schema/{id}/fields/update": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/status/stats": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/tags": {
+      "auth": true,
+      "params": [
+        {
+          "name": "datas",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/warningfilter": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/t/{table}/d": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/{table}/d": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "upsert",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/{table}/d/archive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/{table}/d/change/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/{table}/d/checkAdd": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /core/t/{table}/d/command/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/{table}/d/drop": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/{table}/d/import/excel/{notSkip}/{replaceAll}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "notSkip",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "replaceAll",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "repeatField",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "format",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "fieldMapping",
+          "in": "formData",
+          "required": false
+        },
+        {
+          "name": "sheetName",
+          "in": "formData",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /core/t/{table}/d/many": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/{table}/d/many": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/{table}/d/many": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/{table}/d/tag/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/t/{table}/d/tags": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "ids",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/t/{table}/d/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/t/{table}/d/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/t/{table}/d/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "attachment",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/t/{table}/d/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataarchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/tabledataarchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ArchiveTableDataSetting",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataarchive/instantArchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/tabledataarchive/restore": {
+      "auth": true,
+      "params": [
+        {
+          "name": "ArchiveTableDataSetting",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataarchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/tabledataarchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/tabledataarchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/tabledataarchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/tabledataclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "DeleteTableDataSetting",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataclean/instantDelete": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/tabledataclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/tabledataclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/tabledataclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/tabledataclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/taskmanager": {
+      "auth": false,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/taskmanager": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/taskmanager/{id}": {
+      "auth": false,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/taskmanager/{id}": {
+      "auth": false,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/taskmanager/{id}": {
+      "auth": false,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/taskmanager/{id}": {
+      "auth": false,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/time": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/time/ws": {
+      "auth": false,
+      "params": [],
+      "consumes": []
+    },
+    "GET /core/user": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/user/backup": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/changepwd": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/check": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/codeMail": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/codePhone": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/codeRegister": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /core/user/codeUpdatePwd": {
+      "auth": false,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/user/examine": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/user/exportquery": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/user/restore/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/user/unlock/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/user/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /core/user/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /core/user/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /core/user/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /core/wechat": {
+      "auth": false,
+      "params": [
+        {
+          "name": "signature",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "timestamp",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "nonce",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "echostr",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /core/wechat": {
+      "auth": false,
+      "params": [
+        {
+          "name": "wechat",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "text/xml"
+      ]
+    },
+    "POST /core/wechat/qrcode": {
+      "auth": true,
+      "params": [],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /core/wechat/template": {
+      "auth": false,
+      "params": [],
+      "consumes": [
+        "application/json"
+      ]
+    }
+  },
+  "algorithm": {
+    "GET /algorithm/algorithm": {
+      "operationId": "QueryLocalAlgorithms",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /algorithm/algorithm": {
+      "operationId": "CreateLocalAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithm/{id}": {
+      "operationId": "GetLocalAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /algorithm/algorithm/{id}": {
+      "operationId": "ReplaceLocalAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /algorithm/algorithm/{id}": {
+      "operationId": "DeleteLocalAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /algorithm/algorithm/{id}": {
+      "operationId": "UpdateLocalAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithmCategory": {
+      "operationId": "QueryAlgorithmCategories",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /algorithm/algorithmCategory": {
+      "operationId": "CreateAlgorithmCategory",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithmCategory/{id}": {
+      "operationId": "GetAlgorithmCategory",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /algorithm/algorithmCategory/{id}": {
+      "operationId": "ReplaceAlgorithmCategory",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /algorithm/algorithmCategory/{id}": {
+      "operationId": "DeleteAlgorithmCategory",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /algorithm/algorithmCategory/{id}": {
+      "operationId": "UpdateAlgorithmCategory",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithmDebugLog": {
+      "operationId": "QueryAlgorithmDebugLogs",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /algorithm/algorithmDebugLog": {
+      "operationId": "CreateAlgorithmDebugLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithmDebugLog/{id}": {
+      "operationId": "GetAlgorithmDebugLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /algorithm/algorithmDebugLog/{id}": {
+      "operationId": "ReplaceAlgorithmDebugLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /algorithm/algorithmDebugLog/{id}": {
+      "operationId": "DeleteAlgorithmDebugLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /algorithm/algorithmDebugLog/{id}": {
+      "operationId": "UpdateAlgorithmDebugLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /algorithm/algorithmRun/{key}": {
+      "operationId": "RunAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "Request-Type",
+          "in": "header",
+          "required": false
+        },
+        {
+          "name": "key",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /algorithm/algorithmRun/{key}/debug": {
+      "operationId": "DebugAlgorithm",
+      "auth": true,
+      "params": [
+        {
+          "name": "Request-Type",
+          "in": "header",
+          "required": false
+        },
+        {
+          "name": "key",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /algorithm/algorithmService/list": {
+      "operationId": "ListAlgorithmServices",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /algorithm/algorithmService/{id}/schema": {
+      "operationId": "GetAlgorithmServiceSchema",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    }
+  },
+  "driver": {
+    "GET /driver/archiveEvent": {
+      "operationId": "QueryDriverEventArchives",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/archiveEvent/restore/{id}": {
+      "operationId": "RestoreDriverEventArchive",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/archiveEvent/{id}": {
+      "operationId": "GetDriverEventArchive",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /driver/archiveEvent/{id}": {
+      "operationId": "DeleteDriverEventArchive",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/archivecycle": {
+      "operationId": "QueryDriverInstructArchiveCycles",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/archivecycle": {
+      "operationId": "CreateDriverInstructArchiveCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/archivecycle": {
+      "operationId": "DeleteDriverInstructArchiveCycles",
+      "auth": true,
+      "params": [
+        {
+          "name": "names",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/archivecycle/archiveonce": {
+      "operationId": "ExecDriverInstructArchiveOnce",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/archivecycle/{name}": {
+      "operationId": "GetDriverInstructArchiveCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /driver/archivecycle/{name}": {
+      "operationId": "DeleteDriverInstructArchiveCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/archivecycle/{name}": {
+      "operationId": "UpdateDriverInstructArchiveCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/archivedlog": {
+      "operationId": "QueryArchivedDriverInstructLogs",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /driver/archivedlog": {
+      "operationId": "DeleteArchivedDriverInstructLogs",
+      "auth": true,
+      "params": [
+        {
+          "name": "ids",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/archivedlog/restore/{id}": {
+      "operationId": "RestoreArchivedDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/archivedlog/{id}": {
+      "operationId": "GetArchivedDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /driver/archivedlog/{id}": {
+      "operationId": "DeleteArchivedDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/cleancycle": {
+      "operationId": "QueryDriverInstructCleanCycles",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/cleancycle": {
+      "operationId": "CreateDriverInstructCleanCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/cleancycle": {
+      "operationId": "DeleteDriverInstructCleanCycles",
+      "auth": true,
+      "params": [
+        {
+          "name": "names",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/cleancycle/cleanonce": {
+      "operationId": "ExecDriverInstructCleanOnce",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/cleancycle/{name}": {
+      "operationId": "GetDriverInstructCleanCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /driver/cleancycle/{name}": {
+      "operationId": "DeleteDriverInstructCleanCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/cleancycle/{name}": {
+      "operationId": "UpdateDriverInstructCleanCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/driver": {
+      "operationId": "ListDriverInstallPackages",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /driver/driver/batchRun": {
+      "operationId": "BatchRunDriverCommand",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/driver/batchRunLog/{id}": {
+      "operationId": "GetDriverBatchRunLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/driver/command": {
+      "operationId": "RunDriverCommand",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/driver/httpProxy": {
+      "operationId": "ProxyDriverHTTP",
+      "auth": true,
+      "params": [
+        {
+          "name": "type",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "groupId",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/driver/install": {
+      "operationId": "InstallDriverPackage",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/driver/list": {
+      "operationId": "ListDriverTypes",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /driver/driver/serviceList": {
+      "operationId": "ListDriverServices",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /driver/driver/serviceMapping": {
+      "operationId": "GetDriverServiceMapping",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /driver/driver/tag": {
+      "operationId": "WriteDriverTag",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/driver/{id}/change/config": {
+      "operationId": "ReloadDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/driver/{id}/debug": {
+      "operationId": "DebugDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "doc",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/driver/{id}/schema": {
+      "operationId": "GetDriverSchema",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/driverInstance": {
+      "operationId": "QueryDriverInstances",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/driverInstance": {
+      "operationId": "CreateDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/driverInstance/{id}": {
+      "operationId": "GetDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/driverInstance/{id}": {
+      "operationId": "ReplaceDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/driverInstance/{id}": {
+      "operationId": "DeleteDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/driverInstance/{id}": {
+      "operationId": "UpdateDriverInstance",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/event": {
+      "operationId": "QueryDriverEvents",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/event": {
+      "operationId": "CreateDriverEvent",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/event/{id}": {
+      "operationId": "GetDriverEvent",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/event/{id}": {
+      "operationId": "ReplaceDriverEvent",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/event/{id}": {
+      "operationId": "DeleteDriverEvent",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/event/{id}": {
+      "operationId": "UpdateDriverEvent",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/eventCycle": {
+      "operationId": "QueryDriverEventCycles",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/eventCycle": {
+      "operationId": "CreateDriverEventCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/eventCycle/execOnce": {
+      "operationId": "ExecDriverEventCycleOnce",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/eventCycle/{id}": {
+      "operationId": "GetDriverEventCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/eventCycle/{id}": {
+      "operationId": "ReplaceDriverEventCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/eventCycle/{id}": {
+      "operationId": "DeleteDriverEventCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/eventCycle/{id}": {
+      "operationId": "UpdateDriverEventCycle",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/installInfo/{id}": {
+      "operationId": "GetDriverInstallInfo",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /driver/instruct": {
+      "operationId": "QueryDriverInstructs",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/instruct": {
+      "operationId": "CreateDriverInstruct",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/instruct/{id}": {
+      "operationId": "GetDriverInstruct",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/instruct/{id}": {
+      "operationId": "ReplaceDriverInstruct",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/instruct/{id}": {
+      "operationId": "DeleteDriverInstruct",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/instruct/{id}": {
+      "operationId": "UpdateDriverInstruct",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/instructLog": {
+      "operationId": "QueryDriverInstructLogs",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/instructLog": {
+      "operationId": "CreateDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/instructLog/{id}": {
+      "operationId": "GetDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/instructLog/{id}": {
+      "operationId": "ReplaceDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/instructLog/{id}": {
+      "operationId": "DeleteDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/instructLog/{id}": {
+      "operationId": "UpdateDriverInstructLog",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/protocolProxy": {
+      "operationId": "QueryProtocolProxies",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/protocolProxy": {
+      "operationId": "CreateProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /driver/protocolProxy/install": {
+      "operationId": "InstallProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/protocolProxy/installPackages": {
+      "operationId": "ListProtocolProxyInstallPackages",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /driver/protocolProxy/{id}": {
+      "operationId": "GetProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /driver/protocolProxy/{id}": {
+      "operationId": "ReplaceProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /driver/protocolProxy/{id}": {
+      "operationId": "DeleteProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /driver/protocolProxy/{id}": {
+      "operationId": "UpdateProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /driver/protocolProxy/{id}/config": {
+      "operationId": "GetProtocolProxyConfig",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /driver/protocolProxy/{id}/reload": {
+      "operationId": "ReloadProtocolProxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    }
+  },
+  "ws-data": {
+    "GET /ws-data/core/ws/{type}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "type",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "X-Request-Project",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    }
+  },
+  "data-source": {
+    "PATCH /ds/dataset/field/batch/{tableId}": {
+      "operationId": "dataset_field_batch_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /ds/dataset/field/custom/{tableId}": {
+      "operationId": "dataset_field_custom_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /ds/dataset/field/custom/{tableId}/{fid}": {
+      "operationId": "dataset_field_custom_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "fid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /ds/dataset/field/custom/{tableId}/{fid}": {
+      "operationId": "dataset_field_custom_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "fid",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /ds/dataset/field/list/{tableId}": {
+      "operationId": "dataset_field_list",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /ds/dataset/field/reload/{tableId}": {
+      "operationId": "dataset_field_reload",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /ds/dataset/jst/data/{tableId}": {
+      "operationId": "dataset_jst_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /ds/dataset/jst/schema/{tableId}": {
+      "operationId": "dataset_jst_schema",
+      "auth": true,
+      "params": [
+        {
+          "name": "tableId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /ds/dataset/table": {
+      "operationId": "dataset_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "builtin_only",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "PUT /ds/dataset/table": {
+      "operationId": "dataset_dump",
+      "auth": true,
+      "params": [
+        {
+          "name": "x-ds-migrate-pw",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /ds/dataset/table": {
+      "operationId": "dataset_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /ds/dataset/table/preview": {
+      "operationId": "dataset_preview",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /ds/dataset/table/{id}": {
+      "operationId": "dataset_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "DELETE /ds/dataset/table/{id}": {
+      "operationId": "dataset_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /ds/dataset/table/{id}": {
+      "operationId": "dataset_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /ds/group": {
+      "operationId": "data_group_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /ds/group": {
+      "operationId": "data_group_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /ds/group/many": {
+      "operationId": "data_group_delete_many",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /ds/group/validate": {
+      "operationId": "data_group_validate",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /ds/group/{id}": {
+      "operationId": "data_group_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /ds/group/{id}": {
+      "operationId": "data_group_replace",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /ds/group/{id}": {
+      "operationId": "data_group_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /ds/group/{id}": {
+      "operationId": "data_group_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /ds/interface": {
+      "operationId": "data_interface_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /ds/interface": {
+      "operationId": "data_interface_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /ds/interface/many": {
+      "operationId": "data_interface_delete_many",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /ds/interface/{id}": {
+      "operationId": "data_interface_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /ds/interface/{id}": {
+      "operationId": "data_interface_replace",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /ds/interface/{id}": {
+      "operationId": "data_interface_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /ds/interface/{id}": {
+      "operationId": "data_interface_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /ds/p/{key}": {
+      "operationId": "data_interface_proxy",
+      "auth": true,
+      "params": [
+        {
+          "name": "key",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "debug",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "GET /ds/view": {
+      "operationId": "view_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /ds/view": {
+      "operationId": "view_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    },
+    "POST /ds/view/preview": {
+      "operationId": "view_preview",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /ds/view/{id}": {
+      "operationId": "view_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /ds/view/{id}": {
+      "operationId": "view_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ]
+    }
+  },
+  "flow": {
+    "GET /flow/engine/archivedInstance": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/archivedInstance/restore/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/archivedInstance/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/engine/archivedInstance/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/debug": {
+      "operationId": "engine_flow_debug",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/extension/list": {
+      "operationId": "engine_extension_list",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /flow/engine/extension/{id}/debug": {
+      "operationId": "engine_extension_debug",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/extension/{id}/schema": {
+      "operationId": "engine_extension_schema",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/instanceArchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/instanceArchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/instanceArchive/once": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/instanceArchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/engine/instanceArchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/engine/instanceArchive/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/instanceClean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/instanceClean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/instanceClean/once": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/instanceClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/engine/instanceClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/engine/instanceClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/job": {
+      "operationId": "engine_job_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/jobInstance": {
+      "operationId": "engine_job_instance_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /flow/engine/jobInstance/{jobId}/interrupt": {
+      "operationId": "engine_job_instance_interrupt",
+      "auth": true,
+      "params": [
+        {
+          "name": "jobId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/log/flow": {
+      "operationId": "engine_flow_log_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/log/job": {
+      "operationId": "engine_job_log_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/logClean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/logClean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/logClean/once": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/engine/logClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/engine/logClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/engine/logClean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/manualTrigger": {
+      "operationId": "engine_flow_manual_trigger",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/engine/mock": {
+      "operationId": "engine_flow_mock",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flow": {
+      "operationId": "flow_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/flow": {
+      "operationId": "flow_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flow/export": {
+      "operationId": "flow_export",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flow/license": {
+      "operationId": "flow_license_stats",
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "POST /flow/flow/offlineImport": {
+      "operationId": "flow_offline_import",
+      "auth": true,
+      "params": [
+        {
+          "name": "file",
+          "in": "formData",
+          "required": true
+        },
+        {
+          "name": "password",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": [
+        "multipart/form-data"
+      ]
+    },
+    "POST /flow/flow/onlineImport": {
+      "operationId": "flow_online_import",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flow/{id}": {
+      "operationId": "flow_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /flow/flow/{id}": {
+      "operationId": "flow_replace",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/flow/{id}": {
+      "operationId": "flow_copy_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/flow/{id}": {
+      "operationId": "flow_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flow/{id}": {
+      "operationId": "flow_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flowDraft": {
+      "operationId": "flow_draft_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/flowDraft": {
+      "operationId": "flow_draft_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flowDraft/{id}": {
+      "operationId": "flow_draft_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /flow/flowDraft/{id}": {
+      "operationId": "flow_draft_replace",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/flowDraft/{id}": {
+      "operationId": "flow_draft_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowDraft/{id}": {
+      "operationId": "flow_draft_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flowTask": {
+      "operationId": "flow_task_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /flow/flowTask": {
+      "operationId": "flow_task_create",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flowTask/currentUser": {
+      "operationId": "flow_task_query_current_user",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/many": {
+      "operationId": "flow_task_update_many",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/referral/{id}": {
+      "operationId": "flow_task_referral",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /flow/flowTask/{id}": {
+      "operationId": "flow_task_get",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /flow/flowTask/{id}": {
+      "operationId": "flow_task_replace",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /flow/flowTask/{id}": {
+      "operationId": "flow_task_delete",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}": {
+      "operationId": "flow_task_update",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}/agree": {
+      "operationId": "flow_task_agree",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}/disagree": {
+      "operationId": "flow_task_disagree",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}/fillin": {
+      "operationId": "flow_task_fillin",
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}/revert": {
+      "operationId": "flow_task_revert",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /flow/flowTask/{id}/submit": {
+      "operationId": "flow_task_submit",
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    }
+  },
+  "warning": {
+    "GET /warning/rule": {
+      "operationId": "warning_rule_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/rule": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/rule/pull": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/rule/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /warning/rule/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /warning/rule/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/rule/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning": {
+      "operationId": "warning_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/warning": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warning/all": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/archive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warning/archive/restore/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/archiveSetting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/warning/archiveSetting": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/archiveSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /warning/warning/archiveSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /warning/warning/archiveSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warning/archiveSetting/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/warning/batch": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warning/batch": {
+      "auth": true,
+      "params": [
+        {
+          "name": "warning",
+          "in": "body",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/desc": {
+      "auth": true,
+      "params": [],
+      "consumes": []
+    },
+    "GET /warning/warning/instantArchive": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/stats": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/stats/latest": {
+      "auth": true,
+      "params": [
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "tableData",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/warning/stats/latest": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/stats/overview": {
+      "auth": true,
+      "params": [
+        {
+          "name": "table",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/stats/timeline": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warning/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /warning/warning/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /warning/warning/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warning/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "archive",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warningclean": {
+      "operationId": "warning_clean_setting_query",
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "POST /warning/warningclean": {
+      "auth": true,
+      "params": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warningclean/instantDelete": {
+      "auth": true,
+      "params": [
+        {
+          "name": "query",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "consumes": []
+    },
+    "GET /warning/warningclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PUT /warning/warningclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "DELETE /warning/warningclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "consumes": []
+    },
+    "PATCH /warning/warningclean/{id}": {
+      "auth": true,
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true
+        }
+      ],
+      "consumes": []
+    }
+  }
+}

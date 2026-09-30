@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "rootDir": ".",
+    "outDir": "dist",
+    "strict": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "api-client/**/*.ts",
+    "algorithm/**/*.ts",
+    "driver-mqtt/**/*.ts",
+    "flow/**/*.ts",
+    "flow-extension/**/*.ts",
+    "data-relay/**/*.ts",
+    "service/**/*.ts",
+    "task/**/*.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
+}

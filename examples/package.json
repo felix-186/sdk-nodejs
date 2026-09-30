@@ -1,0 +1,34 @@
+{
+  "name": "sdk-nodejs-examples",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev:driver": "tsx driver-mqtt/index.ts",
+    "dev:algorithm": "tsx algorithm/algorithm.ts",
+    "dev:flow": "tsx flow/flow.ts",
+    "dev:extension": "tsx flow-extension/flow_extension.ts",
+    "dev:api": "tsx api-client/index.ts",
+    "dev:relay": "tsx data-relay/index.ts",
+    "dev:service": "tsx service/index.ts",
+    "dev:task": "tsx task/index.ts"
+  },
+  "author": "felix",
+  "license": "ISC",
+  "dependencies": {
+    "@kesi/sdk-nodejs": "^1.0.0",
+    "mqtt": "^5.7.0"
+  },
+  "deprecated": false,
+  "description": "KESI Node.js SDK TypeScript 示例",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.2",
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "@types/node": "^26.6.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
