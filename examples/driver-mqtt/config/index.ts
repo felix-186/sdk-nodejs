@@ -22,6 +22,6 @@ export = {
   "api": {
     "endpoint": "http://192.168.99.103:31000",
     "type": "project",
-    "projectId": "default"
+    "projectId": "zq"
   }
 }
