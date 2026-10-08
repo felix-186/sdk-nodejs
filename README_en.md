@@ -2,7 +2,9 @@
 
 English | [Chinese](./README.md)
 
-The KESI Node.js SDK is used to develop platform extension services. It covers Driver, Algorithm, DataRelay, Flow, FlowExtension, Service, and Task modules. The source code is written in TypeScript, while the npm package provides ready-to-run JavaScript. This repository also contains TypeScript examples for every module.
+The KESI Node.js SDK is used to develop platform extension services. It covers Driver, Algorithm, DataRelay, Flow, FlowExtension, Service, and Task modules and provides a platform API client. The source is written in TypeScript; the npm package includes compiled JavaScript and type declarations. This repository also contains TypeScript examples for every module.
+
+Source: [felix-186/sdk-nodejs](https://github.com/felix-186/sdk-nodejs) · npm package: [@kesi/sdk-nodejs](https://www.npmjs.com/package/@kesi/sdk-nodejs)
 
 ## Table of Contents
 
@@ -12,8 +14,7 @@ The KESI Node.js SDK is used to develop platform extension services. It covers D
 - [Core Interfaces](#core-interfaces)
 - [Developing and Deploying Modules](#developing-and-deploying-modules)
 - [Driver Configuration](#driver-configuration)
-- [Example Directory](#example-directory)
-- [Packaging and Deployment](#packaging-and-deployment)
+- [Building the SDK from Source](#building-the-sdk-from-source)
 - [API Client](#api-client)
 - [FAQ](#faq)
 - [Requirements](#requirements)
@@ -44,7 +45,25 @@ The KESI Node.js SDK is used to develop platform extension services. It covers D
 npm install @kesi/sdk-nodejs
 ```
 
-TypeScript projects can import directly from the paths above. JavaScript projects can use `require('@kesi/sdk-nodejs/driver')`. In the source repository, run `npm ci && npm run build` to generate `dist`. Consumers who install the published package do not need to compile the SDK.
+The published package does not need to be compiled after installation. TypeScript projects use the same import paths and receive type information from the included declarations. Your own TypeScript application still follows its normal build process.
+
+Use a TypeScript module resolution mode that supports `exports` in `package.json`, such as `node16`, `nodenext`, or `bundler`. The repository examples use `module: "Node16"` and `moduleResolution: "Node16"`.
+
+CommonJS projects use `require`:
+
+```js
+const {App, Driver} = require('@kesi/sdk-nodejs/driver')
+```
+
+JavaScript ES module projects use a default import and destructure it, because the SDK runtime is CommonJS:
+
+```js
+import driverSDK from '@kesi/sdk-nodejs/driver'
+
+const {App, Driver} = driverSDK
+```
+
+Choose the import path for the module you need. The root path `@kesi/sdk-nodejs` exports the API client, rather than a collection of all modules.
 
 ## Quick Start
 
@@ -57,26 +76,32 @@ class MyDriver extends Driver {
   stop(app, meta, callback) { callback() }
 }
 
-new App({driver: {id: 'my-driver', name: 'My Driver'}}).start(new MyDriver())
+new App({
+  driver: {id: 'my-driver', name: 'My Driver'},
+  driverGrpc: {host: '192.168.99.103', port: 9224},
+  mq: {type: 'mqtt', mqtt: {host: '192.168.99.103', port: 1883}}
+}).start(new MyDriver())
 ```
 
-See [Example Overview](#example-overview) for complete MQTT driver, algorithm, data relay, flow, flow extension, HTTP service, scheduled task, and API examples. Install the dependencies before running an example, and set the platform addresses for your target environment.
+This is a minimal driver skeleton; it does not implement device communication or point reporting. Before running it, replace the gRPC and MQTT addresses with reachable platform service addresses. The platform supplies driver instance configuration; replace `schema` with your actual driver schema. See [Example Overview](#example-overview) for complete implementations. To verify installation first, run the Service example, which does not require a platform connection.
 
 ## Core Interfaces
 
-Extension classes use callback-style interfaces. The first callback argument is an error, and `meta` provides logger and instance information for the current request. The main methods are listed below. For parameters and runnable implementations, see the `examples/` directory.
+Request handlers in Driver, Algorithm, DataRelay, Flow, and FlowExtension use callbacks whose first argument is an error. `meta` provides request context. Service and Task use `start(app)` and `stop(app)` without callbacks; Driver's `registerRoutes(router)` also has no callback. Implement the methods you need from the table below. See `examples/` for parameters and complete implementations.
 
 | Module | Methods to implement | Capabilities provided by `App` |
 | --- | --- | --- |
 | Driver | `schema`, `start`, `registerRoutes`, `run`, `batchRun`, `writeTag`, `debug`, `httpProxy`, `configUpdate`, `stop` | `writePoints`, `savePoints`, device configuration, MQ, and the API client |
 | Algorithm | `schema`, `start`, `run`, `stop` | Algorithm gRPC request handling |
 | DataRelay | `start`, `httpProxy` | `getMQ()`, `getAPIClient()` |
-| Flow | `handler`, `debug` | Flow-engine request handling |
-| FlowExtension | `schema`, `run` | Configurable extension nodes |
+| Flow | `handler`, `debug`, `stop` | Flow-engine request handling |
+| FlowExtension | `schema`, `run`, `stop` | Configurable extension nodes |
 | Service | `start`, `stop` | `getHttpServer()` returns an Express application |
 | Task | `start`, `stop` | `getCron()` returns a scheduler |
 
-`new App(config)` accepts a configuration object. `await App.fromConfig('./etc')` reads `config.yaml` and also accepts JSON files; its second argument overrides configuration values. When `etcdConfig` is enabled, configuration is read from etcd first, followed by file configuration. Encrypted fields use `KESI_CIPHER_KEY`; `CONFIG_CIPHER_KEY` is also accepted.
+Each module's `new App(config)` accepts a configuration object. `App.fromConfig('./etc')` returns a Promise and reads `config.yaml` from that directory; it also accepts a YAML or JSON file path. The second argument overrides configuration values. Precedence from lowest to highest is: etcd configuration (when `etcdConfig` is set), file configuration, the second argument, then environment variables. Missing fields use module defaults. Use `await` inside an async function to obtain the App instance.
+
+Encrypted configuration fields use `KESI_CIPHER_KEY`, falling back to `CONFIG_CIPHER_KEY` when it is not set.
 
 ## Developing and Deploying Modules
 
@@ -115,15 +140,18 @@ http:
 
 The runtime can override file configuration through environment variables following the platform `ExtraConfig.Env` convention, for example `production_api__endpoint`, `production_api__projectId`, `production_api__ak`, `production_api__sk`, `production_mq__mqtt__host`, and `production_driver-grpc__host`. The `production_` form takes precedence; dot-separated keys such as `APP.API.*` are also supported. `log.level` accepts the Go SDK's numeric levels 0-5, and durations such as `driverGrpc.waitTime` can be written as `5s` or `1m30s`. Use `mq.type: local` when no message service is available locally.
 
-## Example Directory
+`mq.type: local` replaces only the SDK message channel; it does not disable gRPC or the MQTT driver example's own device connection. To debug a Driver without the platform, set `driverGrpc.enable: false` and use `dataFile.enable: true` with `dataFile.path` to load local JSON instance configuration. The SDK watches that file for changes. Enabling `http.enable` provides driver-management APIs and `/driver/ws`.
 
-All examples are in the `examples/` directory. See [Example Overview](#example-overview) for entry points, run commands, and purposes. The SDK npm package publishes only runtime libraries, type declarations, and the API route catalog.
+## Building the SDK from Source
 
-## Packaging and Deployment
+Run these commands in the repository root when modifying the SDK or verifying local changes:
 
-Developers run `npm run build` in the `examples` directory to compile TypeScript into `dist/`. A native deployment must include `dist/`, `package.json`, and production dependencies, and Node.js must be installed on the target machine. A typical start command is `node dist/driver-mqtt/index.js`. For Docker deployment, see the [driver Dockerfile](./examples/driver-mqtt/Dockerfile). The `Command` in the platform `service.yml` must point to the actual start command; container packages use the image entry point. Use `Service: None` when a package only actively connects to platform services. If it provides an inbound HTTP interface, configure `Path` and `Ports` according to platform requirements.
+```bash
+npm ci
+npm run build
+```
 
-The SDK itself is built and verified with `npm test`; `npm pack --dry-run` checks the files to publish, while `prepack` builds automatically during packaging. When `dataFile.enable` is enabled, driver configuration is loaded from a local JSON file and watched for changes. Enabling `http.enable` provides driver-management APIs and `/driver/ws`. When `license` or `licenseLibrary` is configured, the corresponding platform-specific `license_core` native library is loaded and verified before startup.
+Output is written to the root `dist/` directory. `npm test` rebuilds and runs SDK tests. `npm pack --dry-run` checks the files to publish; `prepack` builds automatically during packaging and publishing. The npm package includes runtime output, type declarations, protocol and API route files, READMEs, and the license, but not `examples/`. Obtain examples from the source repository and see [Example Packaging and Deployment](#example-packaging-and-deployment).
 
 ## API Client
 
@@ -134,22 +162,33 @@ import ApiClient = require('@kesi/sdk-nodejs/api')
 
 const client = new ApiClient({endpoint: 'http://192.168.99.103:31000', projectId: 'default',
   ak: process.env.production_api__ak, sk: process.env.production_api__sk})
-const variables = await client.querySystemVariable({limit: 20, withCount: true})
-console.log(variables.success, variables.status, variables.message, variables.data, variables.count)
+async function main() {
+  const variables = await client.querySystemVariable({limit: 20, withCount: true})
+  console.log(variables.success, variables.status, variables.message, variables.data, variables.count)
 
-const warnings = await client.queryWarning({filter: {level: 'high'}, withCount: true})
-console.log(warnings.data, warnings.count)
+  const warnings = await client.queryWarning({filter: {level: 'high'}, withCount: true})
+  console.log(warnings.data, warnings.count)
+}
+
+main().catch(error => {
+  console.error(error.result || error)
+  process.exitCode = 1
+})
 ```
 
-All HTTP convenience methods return `{success, status, message, data, count, headers}` by default. `success` is determined by an HTTP 2xx status, and `status` is the HTTP status code. `message` prefers the `message`/`detail` field in the response body, `data` retains the complete business response body, and `count` prefers the `count` response header, then the `count` field in the response body; it is `null` when neither exists. On failure, an `ApiError` is thrown; its `result` has the same structure with `success=false`. `request()` and `call()` accept `{raw: true}` or `{response: false}` to obtain the original response body. For Excel/PDF downloads, `data` is a Buffer.
+HTTP data query and operation methods return `{success, status, message, data, count, headers}` by default. `success` indicates an HTTP 2xx status, not a business-level success flag in the response body. `status` is the HTTP status code. `message` prefers the response body's `message`/`detail`. `data` retains the complete business response body. `count` prefers the `count` response header, then the response body's `count`; it is `null` when neither exists.
 
-Warning APIs include `queryWarningRule`, `createWarningRule`, `queryWarning`, `updateWarningBatch`, `queryArchivedWarning`, and `getWarningStats`. System-variable APIs include `querySystemVariable`, `createSystemVariable`, `updateSystemVariable`, `exportSystemVariable`, and Excel import/template APIs. Other cataloged routes can be called with `call(service, method, route, options)`. Use `options.path` for path parameters, `options.query` for URL parameters, and `options.body` for a JSON request body. Use `setProjectId()` to switch projects. The client obtains and caches a token automatically and re-authenticates once after a 401 response. `request()` can access APIs outside the catalog, and `connectWebSocket()` supports real-time subscriptions. See the [API example](./examples/api-client/index.ts) for more usage.
+HTTP non-2xx responses throw `ApiError`, whose `result` has the same structure with `success=false`. Network, timeout, and configuration errors may not contain `result`. `request()` and `call()` accept `{raw: true}` or `{response: false}` to obtain the original response body. Excel/PDF download helpers return a Buffer in `data`; set `responseType: 'buffer'` for custom download requests.
+
+Warning APIs include `queryWarningRule`, `createWarningRule`, `queryWarning`, `updateWarningBatch`, `queryArchivedWarning`, and `getWarningStats`. System-variable APIs include `querySystemVariable`, `createSystemVariable`, `updateSystemVariable`, `exportSystemVariable`, and Excel import/template APIs. Call other cataloged routes with `call(service, method, route, options)`. Use `options.path` for path parameters, `options.query` for URL parameters, and `options.body` for a JSON request body.
+
+`setProjectId()` returns a new client without changing the original. Retain its return value, for example `const projectClient = client.setProjectId('project-id')`. With AppKey/AppSecret authentication, the client obtains and caches a token and re-authenticates and retries once after a 401 response. Explicitly supplied tokens are not automatically renewed. `request()` accesses APIs outside the catalog, and `connectWebSocket()` supports real-time subscriptions. See the [API example](./examples/api-client/index.ts) for more usage.
 
 ## FAQ
 
 ### How do JavaScript projects use the published TypeScript SDK?
 
-The published package contains JavaScript files and type declarations under `dist`. JavaScript projects can use `require('@kesi/sdk-nodejs/api')` directly; TypeScript projects import the same path.
+The published package includes JavaScript and type declarations and does not need to be compiled again. CommonJS projects use `require`; ES module projects use a default import. See [Install](#install) for examples. Use the public paths in Module Overview rather than internal `dist` paths.
 
 ### Should `driverGrpc.host` be a listen address?
 
@@ -157,14 +196,14 @@ No. It is the platform address actively connected to by the SDK. Only inbound se
 
 ### When is the license native library required?
 
-The Node.js SDK calls the license library only when `license` or `licenseLibrary` is configured. `licenseLibrary` can specify the path to the dynamic library for the target system.
+Driver calls the license library only when `license` or `licenseLibrary` is configured. `licenseLibrary` specifies the dynamic library for the target system and architecture; otherwise, the SDK searches for a `license_core_<system>_<architecture>` library file. Driver runtime licensing is separate from the SDK's MIT open-source license.
 
 ## Requirements
 
 - Node.js `>=18`
 - Building from source requires the project development dependencies; consumers of the published package do not need a TypeScript compiler
 
-The SDK uses the ISC license; see `@kesi/sdk-nodejs` in `package.json`.
+The SDK uses the [MIT license](./LICENSE).
 
 ## Example Overview
 
@@ -181,18 +220,19 @@ The SDK uses the ISC license; see `@kesi/sdk-nodejs` in `package.json`.
 
 ## Installing and Running Examples
 
-Node.js 18 or newer is required. After installing the published package, run an example as follows:
+Obtain the source repository, then install example dependencies in `examples/`. To run the HTTP Service example:
 
 ```bash
 cd examples
 npm install
-npm run build
 npm run dev:service
 ```
 
-`npm run build` compiles every example into `dist/`. A deployment environment needs only the JavaScript output and production dependencies, for example `node dist/service/index.js`. During development, `npm run dev:*` runs TypeScript directly with `tsx`.
+During development, `npm run dev:*` runs TypeScript directly with `tsx`; no build is required first. Visit `http://localhost:9000/health` after Service starts, and press `Ctrl+C` to stop it. See [Example Overview](#example-overview) for other commands; configure service addresses before running modules that require platform connections.
 
-If `@kesi/sdk-nodejs` has not yet been published, run `npm install --no-save ..` in the `examples` directory to use the local SDK from the parent directory. Build the SDK first by running `npm run build` in the repository root. This is intended only for local verification; `package.json` still depends on the published version.
+Before deployment, run `npm run build` in `examples/` to compile examples into `examples/dist/`, then start a compiled example with `node dist/service/index.js`. This directory and the root SDK `dist/` belong to separate projects.
+
+To verify unpublished SDK changes, first run `npm ci` and `npm run build` in the repository root. Then run `npm install --no-save ..` in `examples/` to use the local SDK. The examples' `package.json` still declares a dependency on the published version.
 
 ## Example Configuration
 
@@ -210,7 +250,7 @@ production_driver-grpc__host=192.168.99.103
 production_data-relay-grpc__host=192.168.99.103
 ```
 
-Pass real secrets only through environment variables or deployment configuration. The API client uses a project AppKey/AppSecret. Use `client.setProjectId(projectId)` to switch projects and `client.call(service, method, route, options)` to call a full route.
+Pass real secrets only through environment variables or deployment configuration. The API client uses a project AppKey/AppSecret. Use `const projectClient = client.setProjectId(projectId)` to switch projects and `client.call(service, method, route, options)` to call a full route.
 
 ## Developing Example Modules
 
@@ -228,9 +268,16 @@ Service registers Express routes through `app.getHttpServer()` in `start`; the e
 
 ## Example Packaging and Deployment
 
-Run `npm run build` first. A native package must contain at least `dist/`, `package.json`, installed production dependencies, and the platform-required `service.yml`. The target machine must have Node.js installed. For the MQTT driver, see the Windows native-package example [win.yml](./examples/driver-mqtt/deployments/win.yml), whose command is `node dist/driver-mqtt/index.js` and whose `GroupName` is `driver`.
+Run the following commands in `examples/`. Build with `npm run build` first. A native package must contain that directory's `dist/`, `package.json`, installed production dependencies, and the platform-required `service.yml`. Include external configuration, certificates, or license libraries when your application uses them. Install production dependencies in an environment compatible with the target system and architecture. The target machine must have Node.js installed. For the MQTT driver, see the Windows native-package example [win.yml](./examples/driver-mqtt/deployments/win.yml), whose command is `node dist/driver-mqtt/index.js` and whose `GroupName` is `driver`.
 
 A Linux container package can be built from [Dockerfile](./examples/driver-mqtt/Dockerfile). The image installs production dependencies and runs `dist/driver-mqtt/index.js`; the corresponding [linux.yml](./examples/driver-mqtt/deployments/linux.yml) uses `Service: None` because this example has no inbound service. If the driver enables HTTP or another inbound port, change this to `Internal` or `External` as required by the platform and set `Path` and `Ports`. This inbound port is different from `driverGrpc.host/port`, which the program uses to connect to the platform.
+
+Use `examples/` as the build context, rather than `driver-mqtt/`:
+
+```bash
+npm run build
+docker build -f driver-mqtt/Dockerfile -t kesi-driver-mqtt .
+```
 
 A Driver package is first uploaded to the driver repository, then a driver instance is created in the project. A DataRelay package is uploaded to the data-relay repository, then a running instance is installed. Other modules follow the ordinary service installation workflow. Service's `server.port` is an inbound port and must be exposed in the platform installation configuration; Task needs no inbound port.
 
@@ -242,13 +289,13 @@ TypeScript compilation does not bundle dependencies into `dist`. Install the pro
 
 ### Why are environment variables not taking effect?
 
-Check that variable names use the `production_` prefix and double-underscore separators, and that they are set before the Node.js process starts. The SDK supports Go-style keys such as `driverGrpc` as well as the older `driver-grpc` keys.
+Set variables before the Node.js process starts. With the `production_` prefix, double underscores represent nesting, for example `production_driver-grpc__host`. Dot-separated forms such as `APP.API.ENDPOINT` also work; the `production_` form takes precedence for the same field. Configuration objects support Go-style keys such as `driverGrpc` and older keys such as `driver-grpc`.
 
 ## MQTT Driver Test Data and Scripts
 
 ### Test data
 
-topic: test/nodesdk/nodesdk1
+Topic: `test/nodesdk/nodesdk1`. The parser below uses the second segment as the table ID (`nodesdk`) and the third as the device ID (`nodesdk1`). These values must match your platform configuration.
 
 ```json
 [
@@ -273,18 +320,17 @@ topic: test/nodesdk/nodesdk1
 function handler(topic, message) {
   console.log("handler message", message)
   try {
-    let arr = JSON.parse(message.toString())
-    console.log("handler arr", arr)
-    let topics = topic.split("/");
-    let field = {}
-    arr.forEach(ele => {
-      field[ele.key] = ele.value
-    })
+    const points = JSON.parse(message.toString())
+    const topics = topic.split("/")
+    const fields = {}
+    for (const point of points) {
+      fields[point.key] = point.value
+    }
     return [
-      {"table": topics[1], "id": topics[2], "time": new Date().getTime(), "fields": field}
+      {table: topics[1], id: topics[2], time: Date.now(), fields}
     ]
-  } catch (e) {
-    console.error("handler error", e)
+  } catch (error) {
+    console.error("handler error", error)
     return []
   }
 }
@@ -292,10 +338,10 @@ function handler(topic, message) {
 
 ### Command script
 
-topic: cmd/#
+Devices can subscribe to `cmd/#` to receive commands. The script returns the actual publish topic (for example `cmd/nodesdk/nodesdk1`) and payload.
 
 ```javascript
 function handler(tableId, deviceId, command) {
-    return {"topic": "cmd/" + tableId + "/" + deviceId, "payload": JSON.stringify(command.params)}
-  }
+  return {topic: "cmd/" + tableId + "/" + deviceId, payload: JSON.stringify(command.params)}
+}
 ```

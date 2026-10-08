@@ -2,7 +2,9 @@
 
 [English](./README_en.md) | 简体中文
 
-KESI SDK Node.js 用于开发平台扩展服务，覆盖 Driver、Algorithm、DataRelay、Flow、FlowExtension、Service 和 Task。源码使用 TypeScript，npm 包提供可直接运行的 JavaScript。本仓库同时提供各模块的 TypeScript 示例。
+KESI Node.js SDK 用于开发平台扩展服务，覆盖 Driver、Algorithm、DataRelay、Flow、FlowExtension、Service 和 Task，并提供平台 API 客户端。源码使用 TypeScript，npm 包包含编译后的 JavaScript 和类型声明。本仓库同时提供各模块的 TypeScript 示例。
+
+源码仓库：[felix-186/sdk-nodejs](https://github.com/felix-186/sdk-nodejs) · npm 包：[@kesi/sdk-nodejs](https://www.npmjs.com/package/@kesi/sdk-nodejs)
 
 ## 目录
 
@@ -12,8 +14,7 @@ KESI SDK Node.js 用于开发平台扩展服务，覆盖 Driver、Algorithm、Da
 - [核心接口](#核心接口)
 - [各模块开发与部署](#各模块开发与部署)
 - [Driver 配置](#driver-配置)
-- [示例目录](#示例目录)
-- [打包与部署](#打包与部署)
+- [从源码构建 SDK](#从源码构建-sdk)
 - [API 客户端](#api-客户端)
 - [FAQ](#faq)
 - [环境要求](#环境要求)
@@ -44,7 +45,25 @@ KESI SDK Node.js 用于开发平台扩展服务，覆盖 Driver、Algorithm、Da
 npm install @kesi/sdk-nodejs
 ```
 
-TypeScript 项目可直接从上述路径导入；JavaScript 项目可使用 `require('@kesi/sdk-nodejs/driver')`。源码仓库执行 `npm ci && npm run build` 后生成 `dist`。安装发布包的使用方无需编译 SDK。
+安装发布包后，无需自行编译 SDK。TypeScript 项目可以使用同一组导入路径，并通过随包提供的类型声明获得类型提示；使用方自己的 TypeScript 代码仍按项目配置构建。
+
+TypeScript 项目应使用支持 `package.json` 中 `exports` 的模块解析方式，例如 `node16`、`nodenext` 或 `bundler`。本仓库示例使用 `module: "Node16"` 和 `moduleResolution: "Node16"`。
+
+CommonJS 项目使用 `require`：
+
+```js
+const {App, Driver} = require('@kesi/sdk-nodejs/driver')
+```
+
+JavaScript ES module 项目使用默认导入后解构，因为 SDK 的运行产物是 CommonJS：
+
+```js
+import driverSDK from '@kesi/sdk-nodejs/driver'
+
+const {App, Driver} = driverSDK
+```
+
+按模块选择导入路径。根路径 `@kesi/sdk-nodejs` 导出 API 客户端，不是所有模块的集合。
 
 ## 快速开始
 
@@ -57,26 +76,32 @@ class MyDriver extends Driver {
   stop(app, meta, callback) { callback() }
 }
 
-new App({driver: {id: 'my-driver', name: 'My Driver'}}).start(new MyDriver())
+new App({
+  driver: {id: 'my-driver', name: 'My Driver'},
+  driverGrpc: {host: '192.168.99.103', port: 9224},
+  mq: {type: 'mqtt', mqtt: {host: '192.168.99.103', port: 1883}}
+}).start(new MyDriver())
 ```
 
-完整的 MQTT 驱动、算法、数据中继、流程、流程扩展、HTTP 服务、定时任务和 API 示例见下文[示例概览](#示例概览)。运行示例前请安装依赖，并按目标环境设置平台地址。
+这是驱动类的最小骨架，尚未实现设备通信和数据上报。运行前请将 gRPC 和 MQTT 地址改为可访问的平台服务地址；驱动实例配置由平台下发，`schema` 应替换为实际驱动 Schema。完整实现见[示例概览](#示例概览)。首次验证 SDK 安装时，可先运行不依赖平台连接的 Service 示例。
 
 ## 核心接口
 
-扩展类使用回调接口，首个回调参数为错误；`meta` 提供当前请求的日志和实例信息。下表列出主要方法，参数和可运行实现见 `examples/` 目录。
+Driver、Algorithm、DataRelay、Flow 和 FlowExtension 的请求处理方法使用回调接口，首个回调参数为错误；`meta` 提供当前请求的上下文信息。Service、Task 的 `start(app)` 和 `stop(app)` 不接收回调，Driver 的 `registerRoutes(router)` 也不接收回调。下表列出主要方法，按需实现；参数和完整示例见 `examples/` 目录。
 
 | 模块 | 实现方法 | 应用提供的能力 |
 | --- | --- | --- |
 | Driver | `schema`、`start`、`registerRoutes`、`run`、`batchRun`、`writeTag`、`debug`、`httpProxy`、`configUpdate`、`stop` | `writePoints`、`savePoints`、设备配置、MQ 和 API 客户端 |
 | Algorithm | `schema`、`start`、`run`、`stop` | 算法 gRPC 请求处理 |
 | DataRelay | `start`、`httpProxy` | `getMQ()`、`getAPIClient()` |
-| Flow | `handler`、`debug` | 流程引擎请求处理 |
-| FlowExtension | `schema`、`run` | 可配置扩展节点 |
+| Flow | `handler`、`debug`、`stop` | 流程引擎请求处理 |
+| FlowExtension | `schema`、`run`、`stop` | 可配置扩展节点 |
 | Service | `start`、`stop` | `getHttpServer()` 返回 Express 应用 |
 | Task | `start`、`stop` | `getCron()` 返回调度器 |
 
-`new App(config)` 接受配置对象。`await App.fromConfig('./etc')` 可读取 `config.yaml`，也接受 JSON 文件；第二个参数可覆盖配置。启用 `etcdConfig` 时会先读取 etcd，再应用文件配置。加密字段使用 `KESI_CIPHER_KEY`，也接受 `CONFIG_CIPHER_KEY`。
+各模块的 `new App(config)` 接受配置对象。`App.fromConfig('./etc')` 返回 Promise，读取该目录下的 `config.yaml`；也可传入 YAML 或 JSON 文件路径。第二个参数用于覆盖配置。配置合并优先级从低到高为：etcd 配置（设置 `etcdConfig` 时）、文件配置、第二个参数、环境变量，缺失字段使用各模块的默认值。请在异步函数中通过 `await` 获取 App 实例。
+
+配置中的加密字段使用 `KESI_CIPHER_KEY` 解密；未设置时使用 `CONFIG_CIPHER_KEY`。
 
 ## 各模块开发与部署
 
@@ -115,15 +140,18 @@ http:
 
 运行环境可用平台 `ExtraConfig.Env` 约定的环境变量覆盖文件配置，例如 `production_api__endpoint`、`production_api__projectId`、`production_api__ak`、`production_api__sk`、`production_mq__mqtt__host`、`production_driver-grpc__host`。`production_` 形式优先；也支持 `APP.API.*` 等点分隔键。`log.level` 可用 Go SDK 的 0–5 数值级别，`driverGrpc.waitTime` 等时长可写为 `5s`、`1m30s`。本地无消息服务时可使用 `mq.type: local`。
 
-## 示例目录
+`mq.type: local` 只替换 SDK 的消息通道，不会禁用 gRPC 或 MQTT 驱动示例自身的设备连接。若要脱离平台调试 Driver，可设置 `driverGrpc.enable: false`，并通过 `dataFile.enable: true` 和 `dataFile.path` 加载本地 JSON 实例配置；SDK 会监听文件变更。启用 `http.enable` 后可提供驱动管理接口和 `/driver/ws`。
 
-所有示例均在 `examples/` 目录；入口、运行命令和用途见[示例概览](#示例概览)。SDK npm 包只发布运行库、类型声明和接口路由目录。
+## 从源码构建 SDK
 
-## 打包与部署
+以下命令在仓库根目录执行，适用于修改 SDK 源码或本地验证：
 
-开发者在 `examples` 目录运行 `npm run build`，将 TypeScript 编译到 `dist/`。原生部署需携带 `dist/`、`package.json` 和生产依赖，并在目标机器安装 Node.js；启动命令示例为 `node dist/driver-mqtt/index.js`。Docker 部署可参考 [驱动 Dockerfile](./examples/driver-mqtt/Dockerfile)。平台 `service.yml` 的 `Command` 应指向实际启动命令；容器包使用镜像入口。仅提供主动连接的平台服务时使用 `Service: None`；提供 HTTP 入站接口时按平台要求配置 `Path` 和 `Ports`。
+```bash
+npm ci
+npm run build
+```
 
-SDK 自身使用 `npm test` 构建并验证，`npm pack --dry-run` 可检查发布文件；`prepack` 会在打包时自动构建。`dataFile.enable` 可从本地 JSON 文件加载并监听驱动配置；启用 `http.enable` 可提供驱动管理接口和 `/driver/ws`。设置 `license` 或 `licenseLibrary` 时，启动前会加载对应系统的 `license_core` 原生库进行校验。
+产物写入根目录的 `dist/`。`npm test` 会重新构建并运行 SDK 测试；`npm pack --dry-run` 可检查待发布文件，打包和发布时 `prepack` 会自动构建。npm 包包含运行产物、类型声明、协议与接口路由文件、README 和许可证，不包含 `examples/`；示例需从源码仓库获取，部署步骤见[示例打包与部署](#示例打包与部署)。
 
 ## API 客户端
 
@@ -134,22 +162,33 @@ import ApiClient = require('@kesi/sdk-nodejs/api')
 
 const client = new ApiClient({endpoint: 'http://192.168.99.103:31000', projectId: 'default',
   ak: process.env.production_api__ak, sk: process.env.production_api__sk})
-const variables = await client.querySystemVariable({limit: 20, withCount: true})
-console.log(variables.success, variables.status, variables.message, variables.data, variables.count)
+async function main() {
+  const variables = await client.querySystemVariable({limit: 20, withCount: true})
+  console.log(variables.success, variables.status, variables.message, variables.data, variables.count)
 
-const warnings = await client.queryWarning({filter: {level: 'high'}, withCount: true})
-console.log(warnings.data, warnings.count)
+  const warnings = await client.queryWarning({filter: {level: 'high'}, withCount: true})
+  console.log(warnings.data, warnings.count)
+}
+
+main().catch(error => {
+  console.error(error.result || error)
+  process.exitCode = 1
+})
 ```
 
-所有 HTTP 快捷方法默认返回 `{success, status, message, data, count, headers}`。`success` 由 HTTP 2xx 状态决定，`status` 是 HTTP 状态码；`message` 优先使用响应体的 `message`/`detail`，`data` 保留完整业务响应体，`count` 优先读取响应头 `count`，其次读取响应体的 `count`，都没有时为 `null`。失败时抛出 `ApiError`，其 `result` 提供相同结构且 `success=false`。`request()` 和 `call()` 可用 `{raw: true}` 或 `{response: false}` 取得原始响应体。Excel/PDF 下载的 `data` 为 Buffer。
+HTTP 数据查询和操作方法默认返回 `{success, status, message, data, count, headers}`。`success` 表示 HTTP 状态是否为 2xx，不代表业务响应中的成功标记；`status` 是 HTTP 状态码。`message` 优先使用响应体的 `message`/`detail`；`data` 保留完整业务响应体；`count` 优先读取响应头 `count`，其次读取响应体的 `count`，都没有时为 `null`。
 
-报警接口包括 `queryWarningRule`、`createWarningRule`、`queryWarning`、`updateWarningBatch`、`queryArchivedWarning`、`getWarningStats` 等；系统变量接口包括 `querySystemVariable`、`createSystemVariable`、`updateSystemVariable`、`exportSystemVariable` 和 Excel 导入/模板接口。其余已收录路径可用 `call(service, method, route, options)` 调用。`options.path` 提供路径参数，`options.query` 提供 URL 参数，`options.body` 提供 JSON 请求体。项目切换使用 `setProjectId()`；客户端自动换取并缓存 Token，401 后重新认证一次。`request()` 可访问目录外接口，`connectWebSocket()` 用于实时订阅。更多用法见 [API 示例](./examples/api-client/index.ts)。
+HTTP 非 2xx 响应会抛出 `ApiError`，其 `result` 提供相同结构且 `success=false`；网络、超时或配置错误不一定包含 `result`。`request()` 和 `call()` 可用 `{raw: true}` 或 `{response: false}` 取得原始响应体。Excel/PDF 下载快捷方法返回的 `data` 为 Buffer；自定义下载请求可设置 `responseType: 'buffer'`。
+
+报警接口包括 `queryWarningRule`、`createWarningRule`、`queryWarning`、`updateWarningBatch`、`queryArchivedWarning`、`getWarningStats` 等；系统变量接口包括 `querySystemVariable`、`createSystemVariable`、`updateSystemVariable`、`exportSystemVariable` 和 Excel 导入/模板接口。其余已收录路径可用 `call(service, method, route, options)` 调用。`options.path` 提供路径参数，`options.query` 提供 URL 参数，`options.body` 提供 JSON 请求体。
+
+`setProjectId()` 返回新客户端，不修改原客户端；切换项目时应保存返回值，例如 `const projectClient = client.setProjectId('project-id')`。使用 AppKey/AppSecret 时，客户端自动换取并缓存 Token，收到 401 后重新认证并重试一次；显式传入的 Token 不会自动重新换取。`request()` 可访问目录外接口，`connectWebSocket()` 用于实时订阅。更多用法见 [API 示例](./examples/api-client/index.ts)。
 
 ## FAQ
 
 ### 发布 TypeScript SDK 后，JavaScript 项目如何使用？
 
-发布包包含 `dist` 下的 JavaScript 和类型声明。JavaScript 项目直接 `require('@kesi/sdk-nodejs/api')`；TypeScript 项目可导入同一路径。
+发布包已经包含 JavaScript 和类型声明，无需再次编译 SDK。CommonJS 项目使用 `require`，ES module 项目使用默认导入，示例见[安装](#安装)。请从模块概览列出的公开路径导入，不要依赖包内部的 `dist` 路径。
 
 ### `driverGrpc.host` 要填监听地址吗？
 
@@ -157,14 +196,14 @@ console.log(warnings.data, warnings.count)
 
 ### 什么情况下需要授权动态库？
 
-Node.js SDK 仅在配置了 `license` 或 `licenseLibrary` 时调用授权库。`licenseLibrary` 可指定对应系统的动态库路径。
+Driver 仅在配置了 `license` 或 `licenseLibrary` 时调用授权库。`licenseLibrary` 指定目标系统和架构对应的动态库路径；未指定时会搜索 `license_core_<系统>_<架构>` 库文件。此处是驱动运行授权，与 SDK 的 MIT 开源许可证不同。
 
 ## 环境要求
 
 - Node.js `>=18`
 - 从源码构建需安装项目的开发依赖；使用发布包不需要 TypeScript 编译器
 
-SDK 使用 ISC 许可证，参见 `@kesi/sdk-nodejs` 的 `package.json`。
+SDK 使用 [MIT 许可证](./LICENSE)。
 
 ## 示例概览
 
@@ -181,18 +220,19 @@ SDK 使用 ISC 许可证，参见 `@kesi/sdk-nodejs` 的 `package.json`。
 
 ## 示例安装与运行
 
-需要 Node.js 18 或更新版本。安装发布包后直接运行示例：
+先获取源码仓库，再进入 `examples/` 安装示例依赖。以 HTTP Service 为例：
 
 ```bash
 cd examples
 npm install
-npm run build
 npm run dev:service
 ```
 
-`npm run build` 把所有示例编译到 `dist/`；部署环境只需 JavaScript 产物和生产依赖。例如 `node dist/service/index.js`。开发时 `npm run dev:*` 使用 `tsx` 直接运行 TypeScript。
+开发时 `npm run dev:*` 使用 `tsx` 直接运行 TypeScript，无需预先构建。Service 启动后可访问 `http://localhost:9000/health`，按 `Ctrl+C` 停止。其余示例的命令见[示例概览](#示例概览)，需要平台连接的模块应先配置服务地址。
 
-如果 `@kesi/sdk-nodejs` 尚未发布，可在 `examples` 目录执行 `npm install --no-save ..` 使用上级目录的本地 SDK。SDK 需先在仓库根目录执行 `npm run build`。这仅用于本地验证；`package.json` 仍依赖发布版本。
+部署前在 `examples/` 执行 `npm run build`，将示例编译到 `examples/dist/`，随后可用 `node dist/service/index.js` 启动。这个目录与 SDK 根目录的 `dist/` 分别属于两个项目。
+
+若要验证尚未发布的 SDK 改动，先在仓库根目录执行 `npm ci` 和 `npm run build`，再在 `examples/` 执行 `npm install --no-save ..` 使用本地 SDK。示例的 `package.json` 仍声明发布版本依赖。
 
 ## 示例配置
 
@@ -210,7 +250,7 @@ production_driver-grpc__host=192.168.99.103
 production_data-relay-grpc__host=192.168.99.103
 ```
 
-真实密钥只通过环境变量或部署配置传入。API 客户端使用项目 AppKey/AppSecret；切换项目用 `client.setProjectId(projectId)`，调用完整路由用 `client.call(service, method, route, options)`。
+真实密钥只通过环境变量或部署配置传入。API 客户端使用项目 AppKey/AppSecret；切换项目用 `const projectClient = client.setProjectId(projectId)`，调用完整路由用 `client.call(service, method, route, options)`。
 
 ## 示例模块开发
 
@@ -228,9 +268,16 @@ Service 在 `start` 中通过 `app.getHttpServer()` 注册 Express 路由；示�
 
 ## 示例打包与部署
 
-先运行 `npm run build`。原生包至少包含 `dist/`、`package.json`、已安装的生产依赖，以及平台要求的 `service.yml`。目标机器必须安装 Node.js。以 MQTT 驱动为例，Windows 原生包可参考 [win.yml](./examples/driver-mqtt/deployments/win.yml)，其命令为 `node dist/driver-mqtt/index.js`，`GroupName` 为 `driver`。
+以下命令均在 `examples/` 执行。先运行 `npm run build`，原生包至少包含该目录的 `dist/`、`package.json`、已安装的生产依赖，以及平台要求的 `service.yml`；若应用使用外部配置、证书或授权库，也需随部署提供。生产依赖应在与目标系统和架构兼容的环境中安装。目标机器必须安装 Node.js。以 MQTT 驱动为例，Windows 原生包可参考 [win.yml](./examples/driver-mqtt/deployments/win.yml)，其命令为 `node dist/driver-mqtt/index.js`，`GroupName` 为 `driver`。
 
 Linux 容器包可从 [Dockerfile](./examples/driver-mqtt/Dockerfile) 构建。镜像安装生产依赖并运行 `dist/driver-mqtt/index.js`；对应 [linux.yml](./examples/driver-mqtt/deployments/linux.yml) 使用 `Service: None`，因为该示例没有入站服务。若驱动开启 HTTP 或其他入站端口，应按平台要求改用 `Internal` 或 `External` 并设置 `Path`、`Ports`。这里的入站端口与程序主动连接平台的 `driverGrpc.host/port` 不同。
+
+构建上下文必须是 `examples/`，而不是 `driver-mqtt/`：
+
+```bash
+npm run build
+docker build -f driver-mqtt/Dockerfile -t kesi-driver-mqtt .
+```
 
 Driver 安装包先进入驱动仓库，再在项目中创建驱动实例。DataRelay 安装包进入数据中继仓库，再安装运行实例。其余模块按普通服务安装流程部署。Service 的 `server.port` 是入站端口，需要在平台安装配置中暴露；Task 无需入站端口。
 
@@ -242,13 +289,13 @@ TypeScript 构建不会把依赖打进 `dist`。部署时安装 `package.json` �
 
 ### 环境变量没有生效？
 
-确认变量名使用 `production_` 前缀和双下划线分隔，且在启动 Node.js 进程前设置。SDK 支持 `driverGrpc` 等 Go 风格键及旧的 `driver-grpc` 键。
+确认变量在启动 Node.js 进程前设置。使用 `production_` 前缀时，通过双下划线表示层级，例如 `production_driver-grpc__host`；也可使用 `APP.API.ENDPOINT` 等点分隔形式，同一字段以 `production_` 形式优先。配置对象支持 `driverGrpc` 等 Go 风格键及旧的 `driver-grpc` 键。
 
 ## MQTT 驱动测试数据与脚本
 
 ### 测试数据
 
-topic: test/nodesdk/nodesdk1
+主题：`test/nodesdk/nodesdk1`。下面的解析脚本将第二段作为工作表标识（`nodesdk`），第三段作为设备编号（`nodesdk1`）；请确保它们与平台配置一致。
 
 ```json
 [
@@ -273,18 +320,17 @@ topic: test/nodesdk/nodesdk1
 function handler(topic, message) {
   console.log("handler message", message)
   try {
-    let arr = JSON.parse(message.toString())
-    console.log("handler arr", arr)
-    let topics = topic.split("/");
-    let field = {}
-    arr.forEach(ele => {
-      field[ele.key] = ele.value
-    })
+    const points = JSON.parse(message.toString())
+    const topics = topic.split("/")
+    const fields = {}
+    for (const point of points) {
+      fields[point.key] = point.value
+    }
     return [
-      {"table": topics[1], "id": topics[2], "time": new Date().getTime(), "fields": field}
+      {table: topics[1], id: topics[2], time: Date.now(), fields}
     ]
-  } catch (e) {
-    console.error("handler error", e)
+  } catch (error) {
+    console.error("handler error", error)
     return []
   }
 }
@@ -292,10 +338,10 @@ function handler(topic, message) {
 
 ### 指令脚本
 
-topic: cmd/#
+设备端可订阅 `cmd/#` 接收指令。脚本返回实际发布主题（例如 `cmd/nodesdk/nodesdk1`）及消息内容。
 
 ```javascript
 function handler(tableId, deviceId, command) {
-    return {"topic": "cmd/" + tableId + "/" + deviceId, "payload": JSON.stringify(command.params)}
-  }
+  return {topic: "cmd/" + tableId + "/" + deviceId, payload: JSON.stringify(command.params)}
+}
 ```
