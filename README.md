@@ -77,6 +77,8 @@ class MyDriver extends Driver {
 }
 
 new App({
+  project: 'default',
+  serviceId: 'my-driver-instance',
   driver: {id: 'my-driver', name: 'My Driver'},
   driverGrpc: {host: '192.168.99.103', port: 9224},
   mq: {type: 'mqtt', mqtt: {host: '192.168.99.103', port: 1883}}
@@ -84,6 +86,8 @@ new App({
 ```
 
 这是驱动类的最小骨架，尚未实现设备通信和数据上报。运行前请将 gRPC 和 MQTT 地址改为可访问的平台服务地址；驱动实例配置由平台下发，`schema` 应替换为实际驱动 Schema。完整实现见[示例概览](#示例概览)。首次验证 SDK 安装时，可先运行不依赖平台连接的 Service 示例。
+
+连接平台时，`project` 填写目标项目标识，`serviceId` 填写该项目中对应驱动运行实例的标识，`driver.id` 填写驱动标识。上面的值均为示例，应替换为实际配置。SDK 未收到 `serviceId` 时会生成随机标识，但这不能替代平台已有实例的标识。
 
 ## 核心接口
 
@@ -107,7 +111,7 @@ Driver、Algorithm、DataRelay、Flow 和 FlowExtension 的请求处理方法使
 
 | 模块 | 示例入口 | 主要配置 | 连接方式 |
 | --- | --- | --- | --- |
-| Driver | [driver-mqtt](./examples/driver-mqtt/index.ts) | `driver.id/name`、`driverGrpc.host/port`、`mq` | 主动连接平台驱动 gRPC 服务 |
+| Driver | [driver-mqtt](./examples/driver-mqtt/index.ts) | `project`、`serviceId`、`driver.id/name`、`driverGrpc.host/port`、`mq` | 主动连接平台驱动 gRPC 服务 |
 | Algorithm | [algorithm](./examples/algorithm/algorithm.ts) | `algorithm.id/name`、`algorithmGrpc.host/port` | 主动连接平台算法 gRPC 服务 |
 | DataRelay | [data-relay](./examples/data-relay/index.ts) | `service.id/name`、`dataRelayGrpc.host/port` | 主动连接平台数据中继 gRPC 服务 |
 | Flow | [flow](./examples/flow/flow.ts) | `flow.name/mode`、`flowEngine.host/port` | 主动连接流程引擎 |
@@ -121,6 +125,7 @@ Driver、Algorithm、DataRelay、Flow 和 FlowExtension 的请求处理方法使
 
 ```yaml
 project: default
+serviceId: my-driver-instance
 driver:
   id: my-driver
   name: My Driver
@@ -138,7 +143,7 @@ http:
   enable: false
 ```
 
-运行环境可用平台 `ExtraConfig.Env` 约定的环境变量覆盖文件配置，例如 `production_api__endpoint`、`production_api__projectId`、`production_api__ak`、`production_api__sk`、`production_mq__mqtt__host`、`production_driver-grpc__host`。`production_` 形式优先；也支持 `APP.API.*` 等点分隔键。`log.level` 可用 Go SDK 的 0–5 数值级别，`driverGrpc.waitTime` 等时长可写为 `5s`、`1m30s`。本地无消息服务时可使用 `mq.type: local`。
+`project`、`serviceId` 和 `driver.id` 应与平台中的目标驱动实例对应。运行环境可用平台 `ExtraConfig.Env` 约定的环境变量覆盖文件配置，例如 `production_project`、`production_serviceId`、`production_api__endpoint`、`production_api__projectId`、`production_api__ak`、`production_api__sk`、`production_mq__mqtt__host`、`production_driver-grpc__host`。`production_` 形式优先；也支持 `APP.API.*` 等点分隔键。`log.level` 可用 Go SDK 的 0–5 数值级别，`driverGrpc.waitTime` 等时长可写为 `5s`、`1m30s`。本地无消息服务时可使用 `mq.type: local`。
 
 `mq.type: local` 只替换 SDK 的消息通道，不会禁用 gRPC 或 MQTT 驱动示例自身的设备连接。若要脱离平台调试 Driver，可设置 `driverGrpc.enable: false`，并通过 `dataFile.enable: true` 和 `dataFile.path` 加载本地 JSON 实例配置；SDK 会监听文件变更。启用 `http.enable` 后可提供驱动管理接口和 `/driver/ws`。
 
@@ -236,11 +241,13 @@ npm run dev:service
 
 ## 示例配置
 
-各模块的默认配置在其 `config/index.ts` 或入口文件中。Driver、Algorithm、DataRelay、Flow 和 FlowExtension 中的 gRPC 地址是程序主动连接的平台地址。Service 的 `server.port` 是 HTTP 监听端口；Task 默认不监听端口。示例使用 `192.168.99.103` 作为开发地址，部署时请改为目标环境可访问的地址。
+各模块的默认配置在其 `config/index.ts` 或入口文件中。运行 Driver 前，除服务地址外，还需将 `project`、`serviceId` 和 `driver.id` 设置为目标项目及驱动实例的实际值。Driver、Algorithm、DataRelay、Flow 和 FlowExtension 中的 gRPC 地址是程序主动连接的平台地址。Service 的 `server.port` 是 HTTP 监听端口；Task 默认不监听端口。示例使用 `192.168.99.103` 作为开发地址，部署时请改为目标环境可访问的地址。
 
 平台 `ExtraConfig.Env` 注入的环境变量会覆盖默认配置，常用键如下：
 
 ```text
+production_project=default
+production_serviceId=<驱动运行实例标识>
 production_api__endpoint=http://192.168.99.103:31000
 production_api__projectId=default
 production_api__ak=<AppKey>

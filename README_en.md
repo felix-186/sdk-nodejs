@@ -77,6 +77,8 @@ class MyDriver extends Driver {
 }
 
 new App({
+  project: 'default',
+  serviceId: 'my-driver-instance',
   driver: {id: 'my-driver', name: 'My Driver'},
   driverGrpc: {host: '192.168.99.103', port: 9224},
   mq: {type: 'mqtt', mqtt: {host: '192.168.99.103', port: 1883}}
@@ -84,6 +86,8 @@ new App({
 ```
 
 This is a minimal driver skeleton; it does not implement device communication or point reporting. Before running it, replace the gRPC and MQTT addresses with reachable platform service addresses. The platform supplies driver instance configuration; replace `schema` with your actual driver schema. See [Example Overview](#example-overview) for complete implementations. To verify installation first, run the Service example, which does not require a platform connection.
+
+When connecting to the platform, set `project` to the target project ID, `serviceId` to the corresponding driver runtime instance ID in that project, and `driver.id` to the driver ID. Replace the example values above with your actual configuration. The SDK generates a random identifier when `serviceId` is omitted, but that cannot replace an existing platform instance ID.
 
 ## Core Interfaces
 
@@ -107,7 +111,7 @@ Encrypted configuration fields use `KESI_CIPHER_KEY`, falling back to `CONFIG_CI
 
 | Module | Example entry | Main configuration | Connection mode |
 | --- | --- | --- | --- |
-| Driver | [driver-mqtt](./examples/driver-mqtt/index.ts) | `driver.id/name`, `driverGrpc.host/port`, `mq` | Actively connects to the platform driver gRPC service |
+| Driver | [driver-mqtt](./examples/driver-mqtt/index.ts) | `project`, `serviceId`, `driver.id/name`, `driverGrpc.host/port`, `mq` | Actively connects to the platform driver gRPC service |
 | Algorithm | [algorithm](./examples/algorithm/algorithm.ts) | `algorithm.id/name`, `algorithmGrpc.host/port` | Actively connects to the platform algorithm gRPC service |
 | DataRelay | [data-relay](./examples/data-relay/index.ts) | `service.id/name`, `dataRelayGrpc.host/port` | Actively connects to the platform data-relay gRPC service |
 | Flow | [flow](./examples/flow/flow.ts) | `flow.name/mode`, `flowEngine.host/port` | Actively connects to the flow engine |
@@ -121,6 +125,7 @@ The gRPC `host/port` values in this table are platform addresses that the progra
 
 ```yaml
 project: default
+serviceId: my-driver-instance
 driver:
   id: my-driver
   name: My Driver
@@ -138,7 +143,7 @@ http:
   enable: false
 ```
 
-The runtime can override file configuration through environment variables following the platform `ExtraConfig.Env` convention, for example `production_api__endpoint`, `production_api__projectId`, `production_api__ak`, `production_api__sk`, `production_mq__mqtt__host`, and `production_driver-grpc__host`. The `production_` form takes precedence; dot-separated keys such as `APP.API.*` are also supported. `log.level` accepts the Go SDK's numeric levels 0-5, and durations such as `driverGrpc.waitTime` can be written as `5s` or `1m30s`. Use `mq.type: local` when no message service is available locally.
+`project`, `serviceId`, and `driver.id` must correspond to the target platform driver instance. The runtime can override file configuration through environment variables following the platform `ExtraConfig.Env` convention, for example `production_project`, `production_serviceId`, `production_api__endpoint`, `production_api__projectId`, `production_api__ak`, `production_api__sk`, `production_mq__mqtt__host`, and `production_driver-grpc__host`. The `production_` form takes precedence; dot-separated keys such as `APP.API.*` are also supported. `log.level` accepts the Go SDK's numeric levels 0-5, and durations such as `driverGrpc.waitTime` can be written as `5s` or `1m30s`. Use `mq.type: local` when no message service is available locally.
 
 `mq.type: local` replaces only the SDK message channel; it does not disable gRPC or the MQTT driver example's own device connection. To debug a Driver without the platform, set `driverGrpc.enable: false` and use `dataFile.enable: true` with `dataFile.path` to load local JSON instance configuration. The SDK watches that file for changes. Enabling `http.enable` provides driver-management APIs and `/driver/ws`.
 
@@ -236,11 +241,13 @@ To verify unpublished SDK changes, first run `npm ci` and `npm run build` in the
 
 ## Example Configuration
 
-Each module's default configuration is in its `config/index.ts` or entry file. For Driver, Algorithm, DataRelay, Flow, and FlowExtension, gRPC addresses are platform addresses actively connected to by the program. For Service, `server.port` is the HTTP listen port; Task does not listen on a port by default. The examples use `192.168.99.103` as a development address. Replace it with an address reachable from your target deployment environment.
+Each module's default configuration is in its `config/index.ts` or entry file. Before running Driver, set `project`, `serviceId`, and `driver.id` to the actual values for your target project and driver instance, in addition to configuring service addresses. For Driver, Algorithm, DataRelay, Flow, and FlowExtension, gRPC addresses are platform addresses actively connected to by the program. For Service, `server.port` is the HTTP listen port; Task does not listen on a port by default. The examples use `192.168.99.103` as a development address. Replace it with an address reachable from your target deployment environment.
 
 Environment variables injected by the platform `ExtraConfig` override default configuration. Common keys are:
 
 ```text
+production_project=default
+production_serviceId=<DriverRuntimeInstanceId>
 production_api__endpoint=http://192.168.99.103:31000
 production_api__projectId=default
 production_api__ak=<AppKey>
